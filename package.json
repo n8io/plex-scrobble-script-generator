@@ -1,0 +1,17 @@
+{
+  "name": "plex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node $npm_package_main",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cwd": "^0.10.0",
+    "plex-api": "^3.5.0"
+  }
+}
