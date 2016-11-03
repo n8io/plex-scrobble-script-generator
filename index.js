@@ -91,6 +91,17 @@ const normalizeShowTitle = title => {
 	return str.toLowerCase().replace(/[ '"().!$,]/g, ``);
 };
 
+const getProperSortTitle = title => {
+  const tt = (title || '');
+  const startsWithArticle = tt.toLowerCase().startsWith('the ');
+
+  if (startsWithArticle) {
+    return `${tt.substring(4)}, The`;
+  }
+
+  return tt;
+};
+
 const printShows = librarySection => {
   if (!process.env.DEBUG) return;
 
@@ -100,19 +111,23 @@ const printShows = librarySection => {
   librarySection._children.forEach(show => {
 		shows.push({
 			id: show.key.split(`/`)[3],
-			title: show.title
+			title: show.title,
+			sortTitle: getProperSortTitle(show.title)
 		});
   });
 
 	shows
 		.sort((a, b) => {
-			if (a.title < b.title) return -1;
-			if (a.title > b.title) return 1;
+			const sortA = a.sortTitle;
+			const sortB = b.sortTitle;
+
+			if (sortA < sortB) return -1;
+			if (sortA > sortB) return 1;
 
 			return 0;
 		})
 		.forEach(show => {
-			console.log(`    ${show.title} (${show.id})`);
+			console.log(`    ${show.sortTitle} (${show.id})`);
 		});
 };
 
