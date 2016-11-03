@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cwd": "^0.10.0",
-    "plex-api": "^3.5.0"
+    "colors": "^1.1.2",
+    "cwd": "^0",
+    "dotenv-safe": "^2.3.3",
+    "plex-api": "^4"
   }
 }
