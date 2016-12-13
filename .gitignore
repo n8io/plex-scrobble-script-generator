@@ -1,5 +1,7 @@
 node_modules/
 *.log
 *.sh
+*.pid
 .env*
 !.env.example
+!pid-*.sh
